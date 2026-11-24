@@ -1,15 +1,12 @@
 <?php
 declare(strict_types=1);
 
-/**
- * ITCS333 Project starter — m1_auth handler (module under construction).
- * Implement the endpoints in contracts/ for your module.
- * The routing context is in $GLOBALS['__route'] ('area', 'rest', 'uri').
- * Use db() from src/db.php and the helpers in src/http.php.
- */
+// m1_auth - register, login, logout, me
+// contract: contracts/auth.md
 
 $rest = $GLOBALS['__route']['rest'] ?? '';
+$method = http_method();
+$pdo = db()
 
-// TODO: implement your module's endpoints here (see contracts/).
-
-send_error(501, 'NOT_IMPLEMENTED', ['module' => 'm1_auth', 'rest' => $rest]);
+// any other URL
+send_error(404, 'NOT_FOUND');
