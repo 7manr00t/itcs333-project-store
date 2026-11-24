@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 $rest = $GLOBALS['__route']['rest'] ?? '';
 $method = http_method();
-$pdo = db()
+$pdo = db();
 
 // REGISTER
 // POST /api/auth/register
