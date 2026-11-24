@@ -18,7 +18,7 @@ async function checkUser() {
     if (user.is_admin === 1) {
       who.textContent += ' (admin)';
     }
-    logoutBtn.style.display = 'inline block';
+    logoutBtn.style.display = 'inline-block';
     loginForm.style.display = 'none';
   } else {
     who.textContent = 'You are not logged in.';
