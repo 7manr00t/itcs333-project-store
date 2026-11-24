@@ -11,7 +11,7 @@
 
 ## Weekly contribution log (optional)
 | Week | Student | What I did (module, files, PRs) |
-|---|---|---|
+| 11 | Abdelrahman Ahmed Elsayed | m1_auth: handler.php (register, login, logout, me), public/auth/ register + login pages (HTML/JS), public/style.css. Pull Request #1 merged into master |
 | 4 |  |  |
 | 6 |  |  |
 | 10 |  |  |
