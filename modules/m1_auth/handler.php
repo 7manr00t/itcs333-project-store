@@ -46,5 +46,36 @@ if ($method == 'POST' && $rest == '/register') {
     send_json(201, ['id' => $id, 'username' => $username, 'is_admin' => $isAdmin]);
 }
 
+// LOGIN 
+// POST /api/auth/login
+if ($method == 'POST' && $rest == '/login') {
+    $data = json_body();
+    $username = trim($data['username'] ?? '');
+    $password = $data['password'] ?? '';
+
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->execute([$username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // wrong username or wrong password
+    if (!$user || !password_verify($password, $user['password_hash'])) {
+        send_error(401, 'INVALID_CREDENTIALS');
+    }
+
+    // new session id after login (stops session fixation)
+    session_regenerate_id(true);
+    $_SESSION['user_id'] = (int) $user['id'];
+    $_SESSION['username'] = $user['username'];
+
+    send_json(200, [
+        'id' => (int) $user['id'],
+        'username' => $user['username'],
+        'is_admin' => (int) $user['is_admin'],
+        'token' => session_id()
+    ]);
+}
+
+
+
 // any other URL
 send_error(404, 'NOT_FOUND');
