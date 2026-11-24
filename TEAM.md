@@ -12,7 +12,7 @@
 ## Weekly contribution log (optional)
 | Week | Student | What I did (module, files, PRs) |
 |---|---|---|
-| 11 | Abdelrahman Ahmed | m1_auth: handler.php (register, login, logout, me), public/auth/ register + login pages (HTML/JS), public/style.css. PR #1 merged into master |
+|  24 Nov 2026 | Abdelrahman Ahmed | m1_auth: handler.php (register, login, logout, me), public/auth/ register + login pages (HTML/JS), public/style.css. PR #1 merged into master |
 | 6 |  |  |
 | 10 |  |  |
 | 13 |  |  |
