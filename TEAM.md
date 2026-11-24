@@ -3,7 +3,7 @@
 ## Members & module allocation
 | Student ID | Name | Module(s) owned |
 |---|---|---|
-| 202400440 | Abdelrahman Ahmed | m1_auth |
+| 202400440 | Abdelrahman Ahmed Elsayed | m1_auth |
 | 20XXXXXX |  | m2_catalog |
 | 20XXXXXX |  | m3_cart |
 | 20XXXXXX |  | m4_orders |
