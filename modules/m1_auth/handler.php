@@ -83,5 +83,27 @@ if ($method == 'POST' && $rest == '/logout') {
     send_json(200, ['ok' => true]);
 }
 
+//  ME 
+// GET /api/auth/me
+if ($method == 'GET' && $rest == '/me') {
+    if (empty($_SESSION['user_id'])) {
+        send_error(401, 'AUTH_REQUIRED');
+    }
+
+    $stmt = $pdo->prepare("SELECT id, username, is_admin FROM users WHERE id = ?");
+    $stmt->execute([$_SESSION['user_id']]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        send_error(401, 'AUTH_REQUIRED');
+    }
+
+    send_json(200, [
+        'id' => (int) $user['id'],
+        'username' => $user['username'],
+        'is_admin' => (int) $user['is_admin']
+    ]);
+}
+
 // any other URL
 send_error(404, 'NOT_FOUND');
