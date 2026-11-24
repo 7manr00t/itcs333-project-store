@@ -75,7 +75,13 @@ if ($method == 'POST' && $rest == '/login') {
     ]);
 }
 
-
+// LOGOUT 
+// POST /api/auth/logout
+if ($method == 'POST' && $rest == '/logout') {
+    $_SESSION = [];
+    session_destroy();
+    send_json(200, ['ok' => true]);
+}
 
 // any other URL
 send_error(404, 'NOT_FOUND');
